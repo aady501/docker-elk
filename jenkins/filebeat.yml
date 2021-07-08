@@ -1,0 +1,12 @@
+filebeat:
+  prospectors:
+    -
+      paths:
+        - "/var/jenkins_home/jobs/*/builds/*/log"
+        - "/var/jenkins_home/jobs/*/*/builds/*/log"
+        - "/var/jenkins_home/jobs/agent-auth/*/builds/*/log"
+
+
+output:
+  logstash:
+        hosts: ["logstash:5044"]

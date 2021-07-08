@@ -1,6 +1,19 @@
 version: '3.2'
 
 services:
+  jenkins:
+    build:
+      context: jenkins/
+    volumes:
+      - "/Users/shaikhaa/workspace/build-dashboard-template/dockerizing-jenkins/jobs:/var/jenkins_home/jobs/"
+      - "./m2deps:/var/jenkins_home/.m2/repository/"
+      - "./downloads:/var/jenkins_home/downloads"
+      - "~/.ssh:/home/dev/.ssh"
+      - "~/.gitconfig:/home/dev/.gitconfig"
+    ports:
+      - "8080:8080"
+    networks:
+        - elk
   elasticsearch:
     build:
       context: elasticsearch/
