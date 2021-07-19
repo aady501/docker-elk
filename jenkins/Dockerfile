@@ -9,8 +9,8 @@ RUN add-apt-repository \
        "deb [arch=amd64] https://download.docker.com/linux/debian \
        $(lsb_release -cs) stable"
 RUN apt-get update && apt-get install -y docker-ce-cli
-RUN curl -o /tmp/filebeat_1.0.1_amd64.deb https://download.elastic.co/beats/filebeat/filebeat_1.0.1_amd64.deb && \
-    dpkg -i /tmp/filebeat_1.0.1_amd64.deb &&  apt-get install
+RUN curl -o /tmp/filebeat-7.13.3-amd64.deb https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.13.3-amd64.deb && dpkg -i /tmp/filebeat-7.13.3-amd64.deb && apt-get install
+
 COPY filebeat.yml /etc/filebeat/filebeat.yml
 
 # RUN /etc/init.d/filebeat start
